@@ -1,0 +1,164 @@
+<html>
+	<head>
+		<title>Hit-The-Dot</title>
+		<script>
+			var t = 30;
+			var score = 0;
+			var k = 0;
+			function setTime()
+			{
+				t = document.getElementById('txtTime').value;
+				t = t - 1;
+				if(t<0)
+				{
+					alert("Game Over! " + "Score: " + document.getElementById('txtScore').value);
+					document.getElementById('txtScore').value = 0;
+					t = 30;
+				}
+				else
+				{
+					document.getElementById('txtTime').value = t;
+					setTimeout("setTime()",1000);
+				}
+			}
+			function play()
+			{
+				for(i=1;i<=60;i++)
+				{
+					document.getElementById(i).checked = false;
+				}
+				document.getElementById('txtScore').value = 0;
+				document.getElementById('txtTime').value = t;
+				getRandomCheck();
+				setTimeout("setTime()",1000);
+				//getRandomCheck();
+				
+			}
+			function getRandomNumber()
+			{
+				var a = (Math.floor((Math.random() * 100)) + 1) % 61;
+				if(a == 0)
+				{
+					a = 1;
+				}
+				return a;
+				
+			}
+			
+			function getRandomCheck()
+			{
+				k = getRandomNumber();
+				document.getElementById(k).checked = true;
+			}
+			
+			function updateScore(n)
+			{
+				document.getElementById(n).checked = false;
+				if(k == n)
+				{
+					document.getElementById(k).checked = false;
+					score = score + 1;
+					document.getElementById('txtScore').value = score;
+					getRandomCheck();
+				}
+				else
+				{
+					score = score - 1;
+					document.getElementById('txtScore').value = score;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<center>
+		<h1>Hit-The-Dot</h1>
+		<h3>Test your skill.How many boxes you can check in 30 seconds?</h3>
+		<input type = "button" value = "Start Game" id = "bttnStart" onclick = "play()">&nbsp;&nbsp;&nbsp;	Time:<input type = "text" id = "txtTime">&nbsp;&nbsp;&nbsp;Score:<input type = "text" id = "txtScore">
+		<br><br><br>
+		<table>
+			<hr width =240>
+			<tr>
+				<td><input type = radio id = "1" onclick = "updateScore(1)"</td>
+				<td><input type = radio id = "2" onclick = "updateScore(2)"</td>
+				<td><input type = radio id = "3" onclick = "updateScore(3)"</td>
+				<td><input type = radio id = "4" onclick = "updateScore(4)"</td>
+				<td><input type = radio id = "5" onclick = "updateScore(5)"</td>
+				<td><input type = radio id = "6" onclick = "updateScore(6)"</td>
+				<td><input type = radio id = "7" onclick = "updateScore(7)"</td>
+				<td><input type = radio id = "8" onclick = "updateScore(8)"</td>
+				<td><input type = radio id = "9" onclick = "updateScore(9)"</td>
+				<td><input type = radio id = "10"onclick = "updateScore(10)"</td>
+			</tr>
+			<tr>
+				<td><input type = radio id = "11"onclick = "updateScore(11)"</td>
+				<td><input type = radio id = "12"onclick = "updateScore(12)"</td>
+				<td><input type = radio id = "13"onclick = "updateScore(13)"</td>
+				<td><input type = radio id = "14"onclick = "updateScore(14)"</td>
+				<td><input type = radio id = "15"onclick = "updateScore(15)"</td>
+				<td><input type = radio id = "16"onclick = "updateScore(16)"</td>
+				<td><input type = radio id = "17"onclick = "updateScore(17)"</td>
+				<td><input type = radio id = "18"onclick = "updateScore(18)"</td>
+				<td><input type = radio id = "19"onclick = "updateScore(19)"</td>
+				<td><input type = radio id = "20"onclick = "updateScore(20)"</td>
+			</tr>
+			<tr>
+				<td><input type = radio id = "21"onclick = "updateScore(21)"</td>
+				<td><input type = radio id = "22"onclick = "updateScore(22)"</td>
+				<td><input type = radio id = "23"onclick = "updateScore(23)"</td>
+				<td><input type = radio id = "24"onclick = "updateScore(24)"</td>
+				<td><input type = radio id = "25"onclick = "updateScore(25)"</td>
+				<td><input type = radio id = "26"onclick = "updateScore(26)"</td>
+				<td><input type = radio id = "27"onclick = "updateScore(27)"</td>
+				<td><input type = radio id = "28"onclick = "updateScore(28)"</td>
+				<td><input type = radio id = "29"onclick = "updateScore(29)"</td>
+				<td><input type = radio id = "30"onclick = "updateScore(30)"</td>
+			</tr>
+			<tr>
+				<td><input type = radio id = "31"onclick = "updateScore(31)"</td>
+				<td><input type = radio id = "32"onclick = "updateScore(32)"</td>
+				<td><input type = radio id = "33"onclick = "updateScore(33)"</td>
+				<td><input type = radio id = "34"onclick = "updateScore(34)"</td>
+				<td><input type = radio id = "35"onclick = "updateScore(35)"</td>
+				<td><input type = radio id = "36"onclick = "updateScore(36)"</td>
+				<td><input type = radio id = "37"onclick = "updateScore(37)"</td>
+				<td><input type = radio id = "38"onclick = "updateScore(38)"</td>
+				<td><input type = radio id = "39"onclick = "updateScore(39)"</td>
+				<td><input type = radio id = "40"onclick = "updateScore(40)"</td>
+			</tr>
+			<tr>
+				<td><input type = radio id = "41"onclick = "updateScore(41)"</td>
+				<td><input type = radio id = "42"onclick = "updateScore(42)"</td>
+				<td><input type = radio id = "43"onclick = "updateScore(43)"</td>
+				<td><input type = radio id = "44"onclick = "updateScore(44)"</td>
+				<td><input type = radio id = "45"onclick = "updateScore(45)"</td>
+				<td><input type = radio id = "46"onclick = "updateScore(46)"</td>
+				<td><input type = radio id = "47"onclick = "updateScore(47)"</td>
+				<td><input type = radio id = "48"onclick = "updateScore(48)"</td>
+				<td><input type = radio id = "49"onclick = "updateScore(49)"</td>
+				<td><input type = radio id = "50"onclick = "updateScore(50)"</td>
+			</tr>
+			<tr>
+				<td><input type = radio id = "51"onclick = "updateScore(51)"</td>
+				<td><input type = radio id = "52"onclick = "updateScore(52)"</td>
+				<td><input type = radio id = "53"onclick = "updateScore(53)"</td>
+				<td><input type = radio id = "54"onclick = "updateScore(54)"</td>
+				<td><input type = radio id = "55"onclick = "updateScore(55)"</td>
+				<td><input type = radio id = "56"onclick = "updateScore(56)"</td>
+				<td><input type = radio id = "57"onclick = "updateScore(57)"</td>
+				<td><input type = radio id = "58"onclick = "updateScore(58)"</td>
+				<td><input type = radio id = "59"onclick = "updateScore(59)"</td>
+				<td><input type = radio id = "60"onclick = "updateScore(60)"</td>
+			</tr>
+		</table>
+		<hr width=240>
+		<br>
+		<h4>Instructions:</h4>
+		
+			<ul>Click on the radio buttons as they are selected randomly by computer.</ul>
+			<ul>1 point per hit,minus 1 point per miss.</ul>
+			
+		
+		</center>
+	</body>
+</html>
